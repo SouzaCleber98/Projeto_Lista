@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
 
 //Constante
 #define MAX_SIZE 50
@@ -27,9 +29,12 @@ extern int position;
 // protótipos
 void init();
 void destroy();
+void menu(int i);
 void add(struct listV item);
 void expand();
 void printAll();
+bool print(char *cpf,int *index);
+
 
 
 #endif //ARRAYLIST_ARRAYLIST_H

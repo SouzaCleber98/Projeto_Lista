@@ -7,21 +7,22 @@
           OP_NAO_SELECIONADA = 0,
           OP_ADD,
           OP_SAIR,
+          OP_PRINT,
           OP_PRINTALL
       };
 
       // protótipos
-      int menu();
+      int op_menu();
 
       int main() {
           int opcao = OP_NAO_SELECIONADA;
           struct listV novoCliente; 
-
+          int aux;
           init();
 
           while(opcao != OP_SAIR)
           {
-              opcao = menu();
+              opcao = op_menu();
               switch (opcao) {
                   case OP_ADD:
                       
@@ -41,13 +42,21 @@
                     printAll();
                       
                       break;
+                  case OP_PRINT:
+                      printf("Digite o CPF do cliente: ");
+                      scanf("%s", novoCliente.cpf);
+                      if(!print(novoCliente.cpf, &aux))
+                      {
+                        printf( "Cliente nao encontrado!\n");
+                      }
+                    menu(aux);
               }
           }
           destroy();
           return EXIT_SUCCESS;
       }
 
-      int menu()
+      int op_menu()
       {
           int op = OP_NAO_SELECIONADA;
           printf("MENU\n");

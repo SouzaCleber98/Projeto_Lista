@@ -8,6 +8,14 @@ int maxSize = 5;
 
 
 // Funções
+void menu(int i)
+{
+  printf("Nome: %s\n", list[i].name);
+  printf("Endereco: %s\n", list[i].endereco);
+  printf("CPF: %s\n", list[i].cpf);
+  printf("Telefone: %s\n", list[i].telefone);
+  printf("Email: %s\n", list[i].email);
+}
 void init()
 {
     list = malloc(maxSize * sizeof(struct listV));
@@ -58,15 +66,30 @@ void expand()
     free(list);
     list = aux;
 }
+
+bool print(char *cpf,int *index)
+{
+  
+    for(int i = 0; i < position; i++)
+      {
+        if (strcmp(list[i].cpf, cpf) == 0)
+        {
+          *index = i;
+          return 1;
+        }
+
+      
+      }
+  return 0;
+}
+
+
+
+
 void printAll()
  {
   
  for ( int i =0; i < position; i++){
-  printf("Nome: %s\n",list[i].name);
-  printf("endereco: %s\n",list[i].endereco);
-  printf("cpf: %s\n",list[i].cpf);
-  printf("telefone: %s\n",list[i].telefone);
-  printf("email: %s\n",list[i].email);
-  printf("==========================\n");
+  menu(i);
  }
  }
