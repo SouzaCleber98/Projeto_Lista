@@ -6,7 +6,8 @@
       enum {
           OP_NAO_SELECIONADA = 0,
           OP_ADD,
-          OP_SAIR
+          OP_SAIR,
+          OP_PRINTALL
       };
 
       // protótipos
@@ -35,6 +36,10 @@
                       printf("Digite o email do cliente: ");
                       scanf("%s", novoCliente.email);
                       add(novoCliente); 
+                      break;
+                  case OP_PRINTALL:
+                    printAll();
+                      
                       break;
               }
           }

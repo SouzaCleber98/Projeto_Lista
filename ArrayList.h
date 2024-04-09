@@ -29,6 +29,7 @@ void init();
 void destroy();
 void add(struct listV item);
 void expand();
+void printAll();
 
 
 #endif //ARRAYLIST_ARRAYLIST_H

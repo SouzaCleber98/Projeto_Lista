@@ -58,3 +58,15 @@ void expand()
     free(list);
     list = aux;
 }
+void printAll()
+ {
+  
+ for ( int i =0; i < position; i++){
+  printf("Nome: %s\n",list[i].name);
+  printf("endereco: %s\n",list[i].endereco);
+  printf("cpf: %s\n",list[i].cpf);
+  printf("telefone: %s\n",list[i].telefone);
+  printf("email: %s\n",list[i].email);
+  printf("==========================\n");
+ }
+ }
