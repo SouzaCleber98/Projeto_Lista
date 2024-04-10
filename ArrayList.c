@@ -12,7 +12,7 @@ void menu(int i)
 {
   printf("Nome: %s\n", list[i].name);
   printf("Endereco: %s\n", list[i].endereco);
-  printf("CPF: %s\n", list[i].cpf);
+  printf("CPF: %lf\n", list[i].cpf);
   printf("Telefone: %s\n", list[i].telefone);
   printf("Email: %s\n", list[i].email);
 }
@@ -67,28 +67,67 @@ void expand()
     list = aux;
 }
 
-bool print(char *cpf,int *index)
+void del(double cpf)
+  {
+    int index;
+    if (position == 0) {
+        printf("Lista vazia!\n");
+        return;
+    }
+    if (find(cpf, &index))
+    {
+        for(int i = index; i < position; i++)
+          {
+              list[i] = list[i+1];
+            }
+    position--;
+      return;
+  }
+    printf("CPF nao encontrado!\n");
+  } 
+   
+
+bool find(double cpf,int *index)
 {
+
   
     for(int i = 0; i < position; i++)
       {
-        if (strcmp(list[i].cpf, cpf) == 0)
+        if (list[i].cpf == cpf )
         {
           *index = i;
-          return 1;
+          return true;
         }
 
       
       }
-  return 0;
+  return false;
 }
 
 
 
+void print(double cpf)
+
+ {
+int index;
+ 
+  if(find (cpf,&index))
+  {
+  menu(index);
+  }
+   else
+  {
+    printf("Cliente nao encontrado!\n");  
+  }
+ }
+
 
 void printAll()
  {
-  
+  if (position==0)
+  {
+    printf("Lista vazia!\n");
+  }
  for ( int i =0; i < position; i++){
   menu(i);
  }

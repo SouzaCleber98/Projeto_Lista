@@ -17,7 +17,7 @@ struct listV
 {
 char name[MAX_SIZE];
 char endereco[MAX_SIZE];
-char cpf[MAX_SIZE];
+double cpf; 
 char telefone[MAX_SIZE];
 char email[MAX_SIZE];
 };
@@ -33,8 +33,7 @@ void menu(int i);
 void add(struct listV item);
 void expand();
 void printAll();
-bool print(char *cpf,int *index);
-
-
-
+void print(double cpf);
+void del(double cpf);
+bool find(double cpf,int *index);
 #endif //ARRAYLIST_ARRAYLIST_H

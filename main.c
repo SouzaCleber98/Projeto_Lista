@@ -8,7 +8,8 @@
           OP_ADD,
           OP_SAIR,
           OP_PRINT,
-          OP_PRINTALL
+          OP_PRINTALL,
+          OP_DELETE
       };
 
       // protótipos
@@ -31,7 +32,7 @@
                       printf("Digite o endereco do cliente: ");
                       scanf("%s", novoCliente.endereco);
                       printf("Digite o CPF do cliente: ");
-                      scanf("%s", novoCliente.cpf);
+                      scanf("%lf", &novoCliente.cpf);
                       printf("Digite o telefone do cliente: ");
                       scanf("%s", novoCliente.telefone);
                       printf("Digite o email do cliente: ");
@@ -40,16 +41,22 @@
                       break;
                   case OP_PRINTALL:
                     printAll();
-                      
                       break;
                   case OP_PRINT:
                       printf("Digite o CPF do cliente: ");
-                      scanf("%s", novoCliente.cpf);
-                      if(!print(novoCliente.cpf, &aux))
-                      {
-                        printf( "Cliente nao encontrado!\n");
-                      }
-                    menu(aux);
+                      scanf("%d", &aux);   
+                      print(aux);
+                        break;
+                  case OP_DELETE:
+                      printf("Digite o CPF do cliente: ");
+                      scanf("%d", &aux);
+                      del(aux);
+                      break;
+                case OP_SAIR:
+                      break;
+                  default:
+                      printf("Opcao invalida!\n");
+                      break;
               }
           }
           destroy();
@@ -62,6 +69,9 @@
           printf("MENU\n");
           printf("%d - Add\n", OP_ADD);
           printf("%d - Sair\n", OP_SAIR);
+          printf("%d - Print\n", OP_PRINT);
+          printf("%d - PrintAll\n", OP_PRINTALL);
+          printf("%d - Delete\n", OP_DELETE);
           printf("Digite sua opcao: ");
           scanf("%d", &op);
           return op;
